@@ -106,3 +106,13 @@ A pasta pode ser importada na Vercel como site estático, com saída `public`, s
 A publicação usa um repositório próprio, `thiagorpantojaarchitect/renata-fonseca-biografia`, na branch `main`. O repositório anterior do usuário permanece inalterado. A integração inicialmente recusou escrita com HTTP 403; em 15/09/2026, uma credencial fornecida pelo usuário permitiu autenticação direta na API do GitHub. Credenciais não integram arquivos, commits ou configurações persistentes do projeto. Não há mudança de domínio ou DNS nesta entrega.
 
 Para adicionar novas fotos, usar arquivos autorizados e incluir uma legenda factual. Para vídeos futuros, usar arquivo autorizado ou URL pública verificada, com controles e poster; não presumir disponibilidade a partir do perfil do Instagram.
+
+## Revisão 2.1.0 — 15/09/2026
+
+Após a revisão dos três prints enviados pelo usuário, foi corrigido o enquadramento das fotografias. Os recortes em `object-fit: cover` e o zoom no hover foram substituídos por exibição integral, com proporção preservada e áreas neutras ao redor. As imagens dos cards agora têm limite de 240 × 180 CSS px; a galeria usa até 225 × 200 CSS px. O retrato inicial tem largura máxima de 470 CSS px (340 no celular). O diálogo limita a ampliação por fotografia, a partir de metade da largura disponível do arquivo derivado, com teto de 450 CSS px. Isso evita a ampliação agressiva de recortes já interpolados; não constitui recuperação de resolução original.
+
+As dimensões HTML das 22 posições de imagem passaram a corresponder aos arquivos reais, usando `public/assets/dimensions.json`. Nenhuma fotografia foi regenerada, retocada ou substituída por rosto sintético.
+
+Interações adicionadas: transição escalonada de resultados ao filtrar, entrada discreta do menu e diálogo, transição ao carregar uma fotografia, cabeçalho com resposta à rolagem e gesto horizontal na imagem para navegar no celular. As animações JavaScript são canceladas quando a preferência por movimento reduzido é ativada; CSS também respeita essa preferência. Erros de carregamento mostram mensagem e preservam os controles de navegação. O fechamento da galeria restaura o foco sem deslocar a página.
+
+Verificação desta revisão: sintaxe do JavaScript, dimensões reais de todas as imagens, limites de ampliação, IDs e âncoras válidos. A inspeção visual e a execução das interações em navegadores reais continuam pendentes; não se presume aprovação desses testes a partir da análise estática.

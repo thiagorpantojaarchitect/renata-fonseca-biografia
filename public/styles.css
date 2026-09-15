@@ -7,3 +7,41 @@
 
 /* Minimum readable body copy across responsive layouts. */
 .project-copy p,.timeline p,.section-heading>p,.sources details p{font-size:1rem}
+
+/* v2.1: preserve complete photographs and avoid enlarged PDF thumbnails. */
+.hero-photo{min-height:0;height:auto;max-width:470px;align-self:center;border-radius:8px;margin-top:40px;margin-bottom:40px}
+.hero-photo>img{position:static;width:100%;height:auto;object-fit:contain;transform:none}
+.hero-photo:after{inset:80% 0 0}
+.hero-photo figcaption{bottom:16px}
+.photo-button{display:flex;align-items:center;justify-content:center;padding:14px;background:#eef0f7;min-height:190px}
+.photo-button img,.archive-item img{width:auto;height:auto;max-width:min(100%,240px);max-height:180px;aspect-ratio:auto;object-fit:contain;transform:none}
+.photo-button:hover img{transform:none}
+.archive-item .photo-button{height:230px;min-height:0}
+.archive-item img{max-width:min(100%,225px);max-height:200px}
+.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.project-card{display:grid;grid-template-columns:minmax(150px,.8fr) minmax(0,1.2fr);align-items:stretch}
+.project-card .photo-button{min-height:200px;padding:18px}
+.project-copy{padding:25px}
+.journey-photo img{width:auto;max-width:min(100%,320px);height:auto}
+#lightbox-image{max-height:60dvh;min-height:0;width:auto;max-width:min(100%,var(--photo-limit,450px))}
+.photo-loading #lightbox-image{opacity:.3}
+.photo-error{color:#ffccdf;text-align:center;margin:12px 0}
+.photo-resolution{color:#c2cee7;font-size:.8rem;text-align:center;margin-top:8px}
+.lightbox-hint{line-height:1.6}
+.header{transition:box-shadow .25s ease,border-color .25s ease}
+.header.scrolled{box-shadow:0 6px 24px #1223480d;border-color:#d2d9ed}
+.project-card:hover{box-shadow:0 8px 26px #142cad12;border-color:#b9c3de}
+.photo-button:hover .expand,.photo-button:focus-visible .expand{background:var(--blue);color:#fff;transform:translateY(-2px)}
+.expand{transition:background .2s,color .2s,transform .2s}
+.mobile-menu:not([hidden]){animation:menu-in .24s ease-out both}
+dialog[open]{animation:dialog-in .22s ease-out both}
+dialog[open]::backdrop{animation:backdrop-in .22s ease-out both}
+.mobile-menu nav a{transition:padding-left .18s ease,background .18s ease}
+.mobile-menu nav a:hover{padding-left:10px;background:#ffffff08}
+@keyframes menu-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+@keyframes dialog-in{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes backdrop-in{from{opacity:0}to{opacity:1}}
+@media(max-width:1100px){.project-card{grid-template-columns:1fr}.project-card .photo-button{min-height:200px}.hero-photo{margin-right:5.5vw;max-width:420px}.hero{min-height:610px}}
+@media(max-width:760px){.hero{min-height:0}.hero-photo{width:calc(100% - 14%);max-width:340px;margin:10px auto 32px;height:auto}.project-grid{grid-template-columns:1fr}.project-card{grid-template-columns:minmax(110px,.75fr) minmax(0,1.25fr)}.project-card .photo-button{padding:12px;min-height:180px}.project-copy{padding:20px}.archive-item .photo-button{height:210px;padding:10px}.archive-item img{max-height:190px}.hero-photo figcaption{left:16px;right:16px}.hero-photo figcaption span{font-size:.75rem}}
+@media(max-width:480px){.project-card{grid-template-columns:1fr}.project-card .photo-button{min-height:190px}.archive-item .photo-button{height:180px}.archive-item img{max-height:160px}.photo-resolution{font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){.mobile-menu:not([hidden]),dialog[open],dialog[open]::backdrop{animation:none!important}}

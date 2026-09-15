@@ -1,1 +1,11 @@
-{"name":"renata-fonseca-biografia","version":"2.0.0","private":true,"description":"Acervo biográfico informativo de Renata Fonseca","scripts":{"dev":"python3 -m http.server 3000 --directory public","build":"python3 scripts/build.py","package":"python3 scripts/package.py"}}
+{
+  "name": "renata-fonseca-biografia",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Acervo biogr\u00e1fico informativo de Renata Fonseca",
+  "scripts": {
+    "dev": "python3 -m http.server 3000 --directory public",
+    "build": "python3 scripts/build.py",
+    "package": "python3 scripts/package.py"
+  }
+}
